@@ -1,12 +1,12 @@
-import face_recognition as fr
 import os
+
 import cv2
 import face_recognition
+import face_recognition as fr
 import numpy as np
-from time import sleep
 
 
-def get_encoded_faces():
+def get_encoded_faces() -> dict[str, np.ndarray]:
     """
     looks through the faces folder and encodes all
     the faces
@@ -25,7 +25,7 @@ def get_encoded_faces():
     return encoded
 
 
-def unknown_image_encoded(img):
+def unknown_image_encoded(img: str) -> np.ndarray:
     """
     encode a face given the file name
     """
@@ -35,7 +35,7 @@ def unknown_image_encoded(img):
     return encoding
 
 
-def classify_face(im):
+def classify_face(im: str) -> list[str]:
     """
     will find all of the faces in a given image and label
     them if it knows what they are
