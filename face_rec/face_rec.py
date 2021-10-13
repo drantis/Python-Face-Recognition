@@ -33,7 +33,7 @@ def unknown_image_encoded(image_filename: str) -> np.ndarray:
 
     return encoding
 
-def classify_face(image_filename: str) -> list[str]:
+def classify_faces(image_filename: str) -> list[str]:
     """
     will find all of the faces in a given image and label
     them if it knows what they are
@@ -86,5 +86,10 @@ def classify_face(image_filename: str) -> list[str]:
 
     return face_names
 
+def main() -> int:
+    os.chdir(os.path.dirname(os.path.realpath(__file__))) # set cwd
+    print("Faces identified:", ", ".join(classify_faces("test.jpg")))
+    return 0
 
-print(classify_face("test.jpg"))
+if __name__ == "__main__":
+    raise SystemExit(main())
