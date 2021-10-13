@@ -50,7 +50,7 @@ def classify_face(im):
     img = cv2.imread(im, 1)
     #img = cv2.resize(img, (0, 0), fx=0.5, fy=0.5)
     #img = img[:,:,::-1]
- 
+
     face_locations = face_recognition.face_locations(img)
     unknown_face_encodings = face_recognition.face_encodings(img, face_locations)
 
@@ -83,9 +83,7 @@ def classify_face(im):
 
         cv2.imshow('Video', img)
         if cv2.waitKey(1) & 0xFF == ord('q'):
-            return face_names 
+            return face_names
 
 
 print(classify_face("test.jpg"))
-
-
