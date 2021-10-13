@@ -78,10 +78,13 @@ def classify_face(image_filename: str) -> list[str]:
 
 
     # Display the resulting image
-    while True:
-        cv2.imshow('Video', img)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            return face_names
+    cv2.imshow(", ".join(face_names), img)
+
+    # loop until they press `q`
+    while cv2.waitKey(1) & 0xFF != ord("q"):
+        pass
+
+    return face_names
 
 
 print(classify_face("test.jpg"))
